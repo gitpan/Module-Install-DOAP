@@ -38,4 +38,4 @@ resources:
   homepage: https://metacpan.org/release/Module-Install-DOAP
   license: http://dev.perl.org/licenses/
   repository: http://goddamn.co.uk/svn-web/perlmods/browse/Module-Install-DOAP/
-version: 0.001
+version: 0.002
