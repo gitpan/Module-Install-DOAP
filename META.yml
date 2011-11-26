@@ -27,15 +27,15 @@ no_index:
     - inc
     - t
 requires:
-  File::Spec: 3.0
   Module::Install: 1.00
-  Module::Install::RDF: 0.001
+  Module::Install::Admin::RDF: 0.003
+  Module::Install::RDF: 0.003
   RDF::Trine: 0.112
-  URI::file: 4.0
+  parent: 0
   perl: 5.8.0
 resources:
   bugtracker: http://rt.cpan.org/Dist/Display.html?Queue=Module-Install-DOAP
   homepage: https://metacpan.org/release/Module-Install-DOAP
   license: http://dev.perl.org/licenses/
   repository: http://goddamn.co.uk/svn-web/perlmods/browse/Module-Install-DOAP/
-version: 0.002
+version: 0.003
