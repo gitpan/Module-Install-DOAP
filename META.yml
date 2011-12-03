@@ -28,14 +28,13 @@ no_index:
     - t
 requires:
   Module::Install: 1.00
-  Module::Install::Admin::RDF: 0.003
-  Module::Install::RDF: 0.003
-  RDF::Trine: 0.112
-  parent: 0
+  Module::Install::Admin::RDF: 0.004
+  Module::Install::RDF: 0.004
+  RDF::Trine: 0.133
   perl: 5.8.0
 resources:
   bugtracker: http://rt.cpan.org/Dist/Display.html?Queue=Module-Install-DOAP
   homepage: https://metacpan.org/release/Module-Install-DOAP
   license: http://dev.perl.org/licenses/
   repository: http://goddamn.co.uk/svn-web/perlmods/browse/Module-Install-DOAP/
-version: 0.003
+version: 0.004

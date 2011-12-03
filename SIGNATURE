@@ -14,10 +14,10 @@ not run its Makefile.PL or Build.PL.
 -----BEGIN PGP SIGNED MESSAGE-----
 Hash: SHA1
 
-SHA1 d38105f6ae3b0a8298c710c14915a193b5ea8edb Changes
+SHA1 0a9a6a70a391b0f96aa4e49d03830e97cebbcbb5 Changes
 SHA1 f3296a09eb07898f3ba6dd0ece615dafc1b57e16 LICENSE
-SHA1 930ca424c9f7c010a0a7899cb284af8d1636acf1 MANIFEST
-SHA1 ff2c226fef9fd99057fdfa5cc833ce5963fa584d META.yml
+SHA1 ad2663680466768f45c63a1b53cf85157c5cdbaa MANIFEST
+SHA1 dccb0da03a8c1e5e35a962643c0a7d14e16e5b5a META.yml
 SHA1 8f452dee44933e5140932f37b3094ab8993c7c16 Makefile.PL
 SHA1 bdf77536e13e031e24ea940c18047e77f63ab0bb README
 SHA1 eb3697add6a6a8660e5c3d7f042e126f618965fa TODO
@@ -36,22 +36,21 @@ SHA1 b86d0385e10881db680d28bde94f275e49e34a27 inc/Module/Install/TrustMetaYml.pm
 SHA1 1326052d1df1065debee74f9d8583a734b9b3d00 inc/Module/Install/Win32.pm
 SHA1 bb607f3715c40fc3bc1c46496587cdb215bc4fa2 inc/Module/Install/WriteAll.pm
 SHA1 26d58a041cd6b3d21db98b32e8fd1841aae21204 inc/Module/Package.pm
-SHA1 ef4c751e6da2367fbf9d0ef365c27d50d6ed3bf9 inc/Module/Package/Dist/RDF.pm
+SHA1 6b807287940754cc31a3db59f2b22e363d5525be inc/Module/Package/Dist/RDF.pm
 SHA1 775bd24f2fdbb6dce51a8b5b0cdb01fccfce83c4 inc/Scalar/Util.pm
 SHA1 b1b664983568bf822c327599eb88e223483ae96a inc/Scalar/Util/PP.pm
 SHA1 eef6bff62046bff2ce08ba132d0b58fba30f40b4 inc/YAML/Tiny.pm
-SHA1 b526160f58a03562738f361878a6e65e3d79796a inc/parent.pm
-SHA1 d4ffe0c813d5424af25676339d5b223bfaa48831 lib/Module/Install/Admin/DOAP.pm
-SHA1 c48dfac25311c26a5d740fc10d5157a5d92f2d13 lib/Module/Install/DOAP.pm
-SHA1 bd3d9e0e44ad4bf88a79450b4bdb7d0154431ab5 meta/changes.ttl
-SHA1 8d2519e8b1892f4d0385a5d7b27442fd501936ed meta/deps.ttl
+SHA1 0063f7681318f2a927b30255fd90715fda964be0 lib/Module/Install/Admin/DOAP.pm
+SHA1 26c9fcd419f93c42c13408fcefd3d6e6f1897b58 lib/Module/Install/DOAP.pm
+SHA1 bb03d2055856eff5f9e6123e74165b9baf4fa57a meta/changes.ttl
+SHA1 7c9ca74f50f34f89471d8f2da2a54a824ddbcccd meta/deps.ttl
 SHA1 3941542451c2f1ccca33a5b6fbf73ae7c26dcb38 meta/doap.ttl
-SHA1 61238256ca0ebe1df49e1e263e87c94ba2182d6d meta/makefile.ttl
+SHA1 d17efea51d585e01d271f57beb307e288fe4a626 meta/makefile.ttl
 SHA1 ff5a2dcd4a17e0a5ca53c1b36a6291c8fe0b02c8 t/01basic.t
 -----BEGIN PGP SIGNATURE-----
 Version: GnuPG v1.4.10 (GNU/Linux)
 
-iEYEARECAAYFAk7RGjsACgkQzr+BKGoqfTmn3wCePJZGW1HDh2XZFtq0dyJs1GZc
-dmEAnRMqUfJHtlpv2TRvqwiw7EXDyvhr
-=07pd
+iEYEARECAAYFAk7aAeIACgkQzr+BKGoqfTlr/QCfaUV/yTZDv26WVSo3/M/hTGvf
+dYoAn2YwKe1nQA/Waec+v2tsQBv8vOg+
+=05QO
 -----END PGP SIGNATURE-----
