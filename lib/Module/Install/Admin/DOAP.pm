@@ -7,12 +7,13 @@ use strict;
 use Module::Install::Admin::RDF 0.003;
 use RDF::Trine;
 
-our $VERSION = '0.004';
+our $VERSION = '0.005';
 
 use RDF::Trine::Namespace qw[RDF RDFS OWL XSD];
 my $CPAN = RDF::Trine::Namespace->new('http://purl.org/NET/cpan-uri/terms#');
 my $DC   = RDF::Trine::Namespace->new('http://purl.org/dc/terms/');
 my $DOAP = RDF::Trine::Namespace->new('http://usefulinc.com/ns/doap#');
+my $DEPS = RDF::Trine::Namespace->new('http://ontologi.es/doap-deps#');
 my $FOAF = RDF::Trine::Namespace->new('http://xmlns.com/foaf/0.1/');
 my $NFO  = RDF::Trine::Namespace->new('http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#');
 my $SKOS = RDF::Trine::Namespace->new('http://www.w3.org/2004/02/skos/core#');
@@ -191,11 +192,12 @@ sub doap_metadata
 	$metadata->(authors => sort values %authors);
 
 	{
-		my @terms = qw(requires build_requires configure_requires recommends test_requires);
+		my @terms = qw(requires build_requires configure_requires test_requires recommends provides);
 		foreach my $term (@terms)
 		{
 			foreach my $dep ($model->objects($uri, $CPAN->$term))
 			{
+				warn "$term is deprecated in favour of http://ontologi.es/doap-deps#";
 				if ($dep->is_literal)
 				{
 					my ($mod, $ver) = split /\s+/, $dep->literal_value;
@@ -210,8 +212,49 @@ sub doap_metadata
 		}
 	}
 
+	foreach my $phase (qw/ configure build test runtime develop /)
 	{
-		my @terms = qw(abstract_from author_from license_from perl_version_from readme_from version_from
+		foreach my $level (qw/ requirement recommendation suggestion /)
+		{
+			my $term = "${phase}-${level}";
+			my $mi_term = {
+				'configure-requirement'  => 'configure_requires',
+				'build-requirement'      => 'build_requires',
+				'test-requirement'       => 'test_requires',
+				'runtime-requirement'    => 'requires',
+				'build-recommendation'   => 'recommends',
+				'test-recommendation'    => 'recommends',
+				'runtime-recommendation' => 'recommends',
+			}->{$term} or next;
+			
+			foreach my $dep ( $model->objects($uri, $DEPS->uri($term)) )
+			{
+				if ($dep->is_literal)
+				{
+					warn $DEPS->$term . " expects a resource, not literal $dep!";
+					next;
+				}
+				
+				foreach my $ident ( $model->objects($dep, $DEPS->on) )
+				{
+					unless ($ident->is_literal
+					and     $ident->has_datatype
+					and     $ident->literal_datatype eq $DEPS->CpanId->uri)
+					{
+						warn "Dunno what to do with ${ident}... we'll figure something out eventually.";
+						next;
+					}
+					
+					my ($mod, $ver) = split /\s+/, $ident->literal_value;
+					$ver ||= 0;
+					$metadata->($mi_term => $mod => $ver);
+				}
+			}
+		}			
+	}
+
+	{
+		my @terms = qw(abstract_from author_from license_from perl_version_from readme_from requires_from version_from
 			no_index install_script requires_external_bin);
 		TERM: foreach my $term (@terms)
 		{
