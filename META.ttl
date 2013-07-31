@@ -17,17 +17,15 @@ dist:project
 	cpant:perl_version_from _:B1;
 	cpant:readme_from _:B1;
 	cpant:version_from _:B1;
-	deps:runtime_requirement [
-		deps:on "Module::Install::RDF 0.004"^^deps:CpanIdentifier;
+	deps:runtime-requirement [ deps:on "Module::Install 1.00"^^deps:CpanId ];
+	deps:runtime-requirement [
+		deps:on "Module::Install::RDF 0.004"^^deps:CpanId;
 	];
-	deps:runtime_requirement [
-		deps:on "Module::Install 1.00"^^deps:CpanIdentifier;
+	deps:runtime-requirement [
+		deps:on "Module::Install::Admin::RDF 0.004"^^deps:CpanId;
 	];
-	deps:runtime_requirement [
-		deps:on "Module::Install::Admin::RDF 0.004"^^deps:CpanIdentifier;
-	];
-	deps:runtime_requirement [ deps:on "RDF::Trine 0.133"^^deps:CpanIdentifier ];
-	deps:test_requirement [ deps:on "Test::More 0.96"^^deps:CpanIdentifier ];
+	deps:runtime-requirement [ deps:on "RDF::Trine 0.133"^^deps:CpanId ];
+	deps:test-requirement [ deps:on "Test::More 0.96"^^deps:CpanId ];
 	doap:bug-database <http://rt.cpan.org/Dist/Display.html?Queue=Module-Install-DOAP>;
 	doap:category     [ rdfs:label "RDF" ];
 	doap:category     [ rdfs:label "Semantic Web" ];
@@ -48,6 +46,7 @@ dist:project
 	doap:release      dist:v_0-003;
 	doap:release      dist:v_0-004;
 	doap:release      dist:v_0-005;
+	doap:release      dist:v_0-006;
 	doap:repository   [
 		a doap:GitRepository;
 		doap:browse <https://github.com/tobyink/p5-module-install-doap>;
@@ -110,6 +109,20 @@ dist:v_0-005
 	];
 	doap:file-release <http://backpan.cpan.org/authors/id/T/TO/TOBYINK/Module-Install-DOAP-0.005.tar.gz>;
 	doap:revision     "0.005"^^xsd:string.
+
+dist:v_0-006
+	a                 doap:Version;
+	dc:issued         "2013-07-31"^^xsd:date;
+	dcs:changeset     [
+		dcs:item [
+			a dcs:Bugfix;
+			a dcs:Packaging;
+			rdfs:label "Oops; hyphens.";
+		];
+		dcs:versus dist:v_0-005;
+	];
+	doap:file-release <http://backpan.cpan.org/authors/id/T/TO/TOBYINK/Module-Install-DOAP-0.006.tar.gz>;
+	doap:revision     "0.006"^^xsd:string.
 
 <http://tobyinkster.co.uk/#i>
 	a                 foaf:Person;
